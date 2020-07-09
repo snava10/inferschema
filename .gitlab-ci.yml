@@ -44,8 +44,7 @@ pages:
 deploy:
   stage: deploy
   only:
-    - tags
-    - triggers
+    - /^[v|V]*$/
   script:
     - npm run build
     - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}'>.npmrc
