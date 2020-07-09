@@ -1,0 +1,50 @@
+image: node:12.13.0-alpine
+
+stages:
+  - build
+  - test
+  - coverage
+  - deploy
+
+# This folder is cached between builds
+# http://docs.gitlab.com/ce/ci/yaml/README.html#cache
+cache:
+  paths:
+    - node_modules/
+
+build:
+  stage: build
+  script:
+    - npm install
+    - npm run build
+
+test:
+  stage: test
+  script:
+    - npm run test:coverage
+  artifacts:
+    paths:
+      - reports/coverage
+
+pages:
+  stage: coverage
+  dependencies:
+    - test
+  script:
+    - mv reports/coverage public
+  artifacts:
+    paths:
+      - public
+    expire_in: 30 days
+  only:
+    - master
+
+deploy:
+  stage: deploy
+  only:
+    - tags
+    - triggers
+  script:
+    - npm run build
+    - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}'>.npmrc
+    - npm publish --tag latest --access public

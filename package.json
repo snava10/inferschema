@@ -1,0 +1,50 @@
+{
+  "name": "inferschema",
+  "version": "1.0.0",
+  "description": "Schema inference library",
+  "main": "index.js",
+  "scripts": {
+    "tsc": "tsc",
+    "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
+    "build": "npm run clean && tsc -p tsconfig.build.json",
+    "lint": "tslint ./src/**/*.ts ./test/**/*.ts",
+    "lint:fix": "tslint --fix ./src/**/*.ts ./test/**/*.ts -t verbose",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "pretest": "cross-env NODE_ENV=test npm run build && npm run lint",
+    "test": "cross-env NODE_ENV=test jest",
+    "test:ci": "jest --collect-coverage",
+    "clean": "rimraf dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/hidden-fox/inferschema.git"
+  },
+  "keywords": [
+    "typescript",
+    "schema",
+    "inference",
+    "data",
+    "csv"
+  ],
+  "author": "Nava Technologies",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/hidden-fox/inferschema/issues"
+  },
+  "homepage": "https://gitlab.com/hidden-fox/inferschema#readme",
+  "dependencies": {
+    "log4js": "^6.3.0",
+    "rxjs": "^6.6.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.4",
+    "cross-env": "7.0.2",
+    "jest": "^26.1.0",
+    "rimraf": "3.0.2",
+    "ts-jest": "^26.1.1",
+    "tslint": "6.1.2",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "3.9.6"
+  }
+}
