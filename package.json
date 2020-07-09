@@ -1,6 +1,6 @@
 {
-  "name": "@nava/inferschema",
-  "version": "1.0.1",
+  "name": "@navadt/inferschema",
+  "version": "1.0.0",
   "description": "Schema inference library",
   "main": "index.js",
   "scripts": {
