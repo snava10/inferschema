@@ -35,10 +35,12 @@
   "homepage": "https://gitlab.com/hidden-fox/inferschema#readme",
   "dependencies": {
     "log4js": "^6.3.0",
-    "rxjs": "^6.6.0"
+    "rxjs": "^6.6.0",
+    "papaparse": "^5.2.0"
   },
   "devDependencies": {
     "@types/jest": "^26.0.4",
+    "@types/papaparse": "^5.0.4",
     "cross-env": "7.0.2",
     "jest": "^26.1.0",
     "rimraf": "3.0.2",
