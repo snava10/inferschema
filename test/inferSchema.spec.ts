@@ -1,6 +1,6 @@
 import { readFileSync } from "fs";
 import * as inferschema from "src/index";
-import { Schema } from "src/schemaModel";
+import { Schema } from "src/index";
 import {
   airlineSchema,
   propertySchema,

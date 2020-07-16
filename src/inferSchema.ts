@@ -1,5 +1,5 @@
 import * as papa from "papaparse";
-import { Schema, SchemaField, FieldType } from "./schemaModel";
+import { Schema, SchemaField, FieldType } from "./index";
 import { isNumber } from "./typer";
 
 let csv: papa.ParseResult<any>;

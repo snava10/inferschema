@@ -1,4 +1,4 @@
-import { Schema, FieldType } from "../src/schemaModel";
+import { Schema, FieldType } from "src/index";
 
 export let airlineSchema: Schema = {
   fields: [

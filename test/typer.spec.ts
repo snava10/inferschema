@@ -1,4 +1,4 @@
-import { isNumber } from "../src/typer";
+import { isNumber } from "src/typer";
 
 describe("numeric regex", () => {
   it("positive integers match", async () => {

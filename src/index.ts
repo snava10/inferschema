@@ -1,1 +1,2 @@
-export { infer } from "src/inferSchema";
+export { infer } from "./inferSchema";
+export { Schema, SchemaField, FieldType } from "./schemaModel";
