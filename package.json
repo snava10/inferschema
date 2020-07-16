@@ -2,7 +2,8 @@
   "name": "@navadt/inferschema",
   "version": "1.0.1",
   "description": "Schema inference library",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "tsc": "tsc",
     "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
@@ -48,5 +49,8 @@
     "tslint": "6.1.2",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "3.9.6"
-  }
+  },
+  "files": [
+    "dist/**/*"
+  ]
 }
