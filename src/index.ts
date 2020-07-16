@@ -1,1 +1,1 @@
-export { inferSchema } from "./inferSchema";
+export { infer } from "src/inferSchema";

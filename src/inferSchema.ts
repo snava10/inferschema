@@ -4,7 +4,7 @@ import { isNumber } from "./typer";
 
 let csv: papa.ParseResult<any>;
 
-export async function inferSchema(stringCsv: string): Promise<Schema> {
+export async function infer(stringCsv: string): Promise<Schema> {
   csv = papa.parse(stringCsv);
 
   const schema: Schema = {
