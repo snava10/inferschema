@@ -8,6 +8,8 @@ Schema inference library written in Typescript
 import * as inferschema from "@navadt/inferschema";
 import { Schema } from "@navadt/inferschema";
 
-const schema: Schema = await inferschema.infer("path_to_file.csv");
-
+async function f(): Schema {
+    const schema: Schema = await inferschema.infer("path_to_file.csv");
+    return schema;
+}
 ```
