@@ -5,6 +5,7 @@ import {
   airlineSchema,
   propertySchema,
   titanicSchema,
+  variedTypesSchema
 } from "test/testResources";
 
 describe("schema test", () => {
@@ -24,5 +25,11 @@ describe("schema test", () => {
     const file = readFileSync("test/resources/titanic.csv", "utf-8");
     const schema: Schema = await inferschema.infer(file);
     expect(schema).toEqual(titanicSchema);
+  });
+
+  it("titanic test csv equality", async () => {
+    const file = await readFileSync("test/variedTypes.csv", "utf-8");
+    const schema: Schema = await inferschema.infer(file);
+    expect(schema).toEqual(variedTypesSchema);
   });
 });

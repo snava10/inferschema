@@ -1,6 +1,6 @@
 import * as papa from "papaparse";
 import { Schema, SchemaField, FieldType } from "./index";
-import { isNumber } from "./typer";
+import { isNumber, isDate } from "./typer";
 
 let csv: papa.ParseResult<any>;
 
@@ -41,6 +41,8 @@ export async function infer(stringCsv: string): Promise<Schema> {
 
       if (isNumber(fieldValue)) {
         currentField.type = FieldType.NUMBER;
+      } else if (isDate(fieldValue)) {
+        currentField.type = FieldType.DATE;
       } else {
         currentField.type = FieldType.STRING;
       }

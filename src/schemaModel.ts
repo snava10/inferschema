@@ -11,6 +11,7 @@ export interface SchemaField {
 }
 
 export enum FieldType {
+    DATE = "DATE",
     NUMBER = "NUMBER",
     STRING = "STRING",
     ANY = "ANY"

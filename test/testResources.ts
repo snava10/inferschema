@@ -245,3 +245,27 @@ export let titanicSchema: Schema = {
   ],
   errors: null,
 };
+
+export let variedTypesSchema: Schema = {
+  fields: [
+    {
+      name: "string column",
+      type: FieldType.STRING,
+      format: FieldType.ANY,
+      missingValues: [],
+    },
+    {
+      name: "number column",
+      type: FieldType.NUMBER,
+      format: FieldType.ANY,
+      missingValues: [],
+    },
+    {
+      name: "date column",
+      type: FieldType.DATE,
+      format: FieldType.ANY,
+      missingValues: [],
+    },
+  ],
+  errors: null,
+};
