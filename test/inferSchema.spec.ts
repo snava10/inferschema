@@ -5,7 +5,7 @@ import {
   airlineSchema,
   propertySchema,
   titanicSchema,
-  variedTypesSchema
+  variedTypesSchema,
 } from "test/testResources";
 
 describe("schema test", () => {
@@ -28,8 +28,14 @@ describe("schema test", () => {
   });
 
   it("titanic test csv equality", async () => {
-    const file = await readFileSync("test/variedTypes.csv", "utf-8");
+    const file = readFileSync("test/variedTypes.csv", "utf-8");
     const schema: Schema = await inferschema.infer(file);
     expect(schema).toEqual(variedTypesSchema);
+  });
+
+  it("medium size ~50MB file", async () => {
+    const file = readFileSync("test/resources/pp-2018-part2.csv", "utf-8");
+    const schema: Schema = await inferschema.infer(file);
+    expect(schema).toBeTruthy();
   });
 });

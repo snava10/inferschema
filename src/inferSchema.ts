@@ -1,10 +1,14 @@
 import * as papa from "papaparse";
 import { Schema, SchemaField, FieldType } from "./index";
 import { isNumber, isDate } from "./typer";
+import { SchemaOptions } from "./schemaOptions";
 
 let csv: papa.ParseResult<any>;
 
-export async function infer(stringCsv: string): Promise<Schema> {
+export async function infer(
+  stringCsv: string,
+  schemaOptions: SchemaOptions = getDefaultSchemaOptions()
+): Promise<Schema> {
   csv = papa.parse(stringCsv);
 
   const schema: Schema = {
@@ -50,4 +54,11 @@ export async function infer(stringCsv: string): Promise<Schema> {
   }
 
   return schema;
+}
+
+function getDefaultSchemaOptions(): SchemaOptions {
+  const options: SchemaOptions = {
+    dateFormat: "YYYY-MM-DD",
+  };
+  return options;
 }
