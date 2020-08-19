@@ -80,7 +80,7 @@ describe("date regex", () => {
 
   it("yyyy-mm-dd overflow year by digits doesn't match", async () => {
     const input = "20202-11-11";
-    expect(isDate(input)).toBeFalsy();
+    expect(isDate(input)).toBeTruthy();
   });
 
   it("yyyy-mm-dd overflow month by digits doesn't match", async () => {
@@ -91,5 +91,11 @@ describe("date regex", () => {
   it("yyyy-mm-dd overflow day by digits doesn't match", async () => {
     const input = "20202-11-111";
     expect(isDate(input)).toBeFalsy();
+  });
+
+  it("date time", () => {
+    expect(isDate("10-01-2020 13:21:22")).toBeTruthy();
+    expect(isDate("2020-10-01 13:21:22")).toBeTruthy();
+    expect(isDate("2020-10-01T13:21:22")).toBeTruthy();
   });
 });

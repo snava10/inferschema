@@ -70,7 +70,7 @@ export let propertySchema: Schema = {
     },
     {
       name: "transferDate",
-      type: FieldType.STRING,
+      type: FieldType.DATE,
       format: FieldType.ANY,
       missingValues: [],
     },

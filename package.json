@@ -13,7 +13,7 @@
     "prepublishOnly": "npm test && npm run lint",
     "preversion": "npm run lint",
     "pretest": "cross-env NODE_ENV=test npm run build && npm run lint",
-    "test": "cross-env NODE_ENV=test jest",
+    "test": "cross-env NODE_ENV=test jest --detectOpenHandles --colors",
     "test:ci": "jest --collect-coverage",
     "clean": "rimraf dist"
   },
