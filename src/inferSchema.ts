@@ -9,7 +9,7 @@ export async function infer(
   stringCsv: string,
   schemaOptions: SchemaOptions = getDefaultSchemaOptions()
 ): Promise<Schema> {
-  csv = papa.parse(stringCsv);
+  csv = papa.parse(stringCsv.trim());
 
   const schema: Schema = {
     fields: [],
