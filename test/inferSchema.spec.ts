@@ -6,7 +6,7 @@ import {
   propertySchema,
   titanicSchema,
   variedTypesSchema,
-} from "test/testResources";
+} from "test/resources/testSchemas";
 
 describe("schema test", () => {
   it("airline test csv equality", async () => {
@@ -28,7 +28,7 @@ describe("schema test", () => {
   });
 
   it("titanic test csv equality", async () => {
-    const file = readFileSync("test/variedTypes.csv", "utf-8");
+    const file = readFileSync("test/resources/variedTypes.csv", "utf-8");
     const schema: Schema = await inferschema.infer(file);
     expect(schema).toEqual(variedTypesSchema);
   });
