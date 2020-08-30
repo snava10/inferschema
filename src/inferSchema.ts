@@ -60,9 +60,7 @@ function inferSchema(data: Array<Array<any>>): Schema {
 
       schemaField.type = fieldType;
       if (fieldType === FieldType.STRING) {
-        logger.info(
-          `Last processed value for column ${colName} was ${data[row][col]}`
-        );
+        logger.info(`Last processed row ${row}: ${data[row]}`);
         break;
       }
     }
