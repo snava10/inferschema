@@ -1,6 +1,6 @@
 import { readFileSync } from "fs";
 import * as inferschema from "src/index";
-import logger from "@navadt/common/dist/logger/loggerFactory";
+import { logger } from "src/inferSchema";
 
 const getMemoryUsageReport = (entityName: string, memoryUsage: any) => {
   const jsonMemoryUsageReport = JSON.parse(JSON.stringify(memoryUsage));

@@ -20,7 +20,7 @@ log4js.configure({
     default: { appenders: ["std"], level: "info", enableCallStack: true },
   },
 });
-const logger = log4js.getLogger("inferschema");
+export const logger = log4js.getLogger("inferschema");
 
 export async function infer(
   stringCsv: string,
@@ -51,7 +51,10 @@ function inferSchema(data: Array<Array<any>>): Schema {
       let fieldType = inferType(data[row][col]);
 
       // Sanity check. If a column has dates and number it will be treated as a string.
-      if (schemaField.type !== FieldType.ANY && schemaField.type != fieldType) {
+      if (
+        schemaField.type !== FieldType.ANY &&
+        schemaField.type !== fieldType
+      ) {
         fieldType = FieldType.STRING;
       }
 
