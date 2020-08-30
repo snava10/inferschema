@@ -38,4 +38,10 @@ describe("schema test", () => {
     const schema: Schema = await inferschema.infer(file);
     expect(schema).toBeTruthy();
   });
+
+  it("column with dates and numbers should be treated as a string", async () => {
+    const file = readFileSync("test/resources/datesAndnumbers.csv", "utf-8");
+    const schema: Schema = await inferschema.infer(file);
+    expect(schema.fields[0].type).toBe(inferschema.FieldType.STRING);
+  });
 });
