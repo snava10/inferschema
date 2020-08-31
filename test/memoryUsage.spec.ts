@@ -1,6 +1,5 @@
 import { readFileSync } from "fs";
 import * as inferschema from "src/index";
-import { logger } from "src/inferSchema";
 
 const getMemoryUsageReport = (entityName: string, memoryUsage: any) => {
   const jsonMemoryUsageReport = JSON.parse(JSON.stringify(memoryUsage));
@@ -22,14 +21,12 @@ describe("memory usage test", () => {
   it("airline csv memory usage test", async () => {
     const file = readFileSync("test/resources/airline.csv", "utf-8");
     await inferschema.infer(file);
-    logger.info(getMemoryUsageReport("airline csv", process.memoryUsage()));
+    getMemoryUsageReport("airline csv", process.memoryUsage());
   });
 
   it("uk properties csv memory usage test", async () => {
     const file = readFileSync("test/resources/pp-2018-part2.csv", "utf-8");
     await inferschema.infer(file);
-    logger.info(
-      getMemoryUsageReport("uk properties csv", process.memoryUsage())
-    );
+    getMemoryUsageReport("uk properties csv", process.memoryUsage());
   });
 });

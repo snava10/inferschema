@@ -37,6 +37,9 @@ describe("schema test", () => {
     const file = readFileSync("test/resources/pp-2018-part2.csv", "utf-8");
     const schema: Schema = await inferschema.infer(file);
     expect(schema).toBeTruthy();
+    expect(schema.fields.find((x) => x.name === "price").type).toBe(
+      inferschema.FieldType.NUMBER
+    );
   });
 
   it("column with dates and numbers should be treated as a string", async () => {

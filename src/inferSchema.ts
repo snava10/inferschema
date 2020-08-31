@@ -2,25 +2,8 @@ import * as papa from "papaparse";
 import { Schema, SchemaField, FieldType } from "./index";
 import { isNumber, isDate } from "./typer";
 import { SchemaOptions } from "./schemaOptions";
-import * as log4js from "log4js";
 
 let csv: papa.ParseResult<any>;
-
-log4js.configure({
-  appenders: {
-    std: {
-      type: "stdout",
-      layout: {
-        type: "pattern",
-        pattern: "%d %p %c %f:%l %m%n",
-      },
-    },
-  },
-  categories: {
-    default: { appenders: ["std"], level: "info", enableCallStack: true },
-  },
-});
-export const logger = log4js.getLogger("inferschema");
 
 export async function infer(
   stringCsv: string,
@@ -39,7 +22,6 @@ function inferSchema(data: Array<Array<any>>): Schema {
 
   for (let col = 0; col < header.length; col++) {
     const colName = header[col];
-    logger.info(`Processing column ${colName}`);
     const schemaField = {
       name: colName,
       type: FieldType.ANY,
@@ -60,11 +42,9 @@ function inferSchema(data: Array<Array<any>>): Schema {
 
       schemaField.type = fieldType;
       if (fieldType === FieldType.STRING) {
-        logger.info(`Last processed row ${row}: ${data[row]}`);
         break;
       }
     }
-    logger.info(`Column ${colName} is of type ${schemaField.type}`);
   }
   return schema;
 }
