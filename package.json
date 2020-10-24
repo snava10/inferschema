@@ -1,6 +1,6 @@
 {
-  "name": "inferschema",
-  "version": "0.1.0",
+  "name": "@navadt/inferschema",
+  "version": "1.0.13",
   "description": "Schema inference library",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
