@@ -1,3 +1,6 @@
+[![YourActionName Actions Status](https://github.com/snava10/inferschema/workflows/CI/badge.svg)](https://github.com/snava10/inferschema/actions)
+[![YourActionName Actions Status](https://github.com/snava10/inferschema/workflows/Package/badge.svg)](https://github.com/snava10/inferschema/actions)
+
 # inferschema
 
 Schema inference library written in Typescript
