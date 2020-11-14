@@ -14,5 +14,7 @@ export enum FieldType {
     DATE = "DATE",
     NUMBER = "NUMBER",
     STRING = "STRING",
+    MONTH = "MONTH",
+    YEAR= "YEAR",
     ANY = "ANY"
 }
